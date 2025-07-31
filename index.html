@@ -47,27 +47,27 @@
     .bindPopup('Iztapalapa');
 
  // Cuarto marcador: Iztapalapa
-  L.marker([19.3911, -99.2767]).addTo(map)
+  L.marker([19.3911, -99.1627]).addTo(map)
     .bindPopup('Iztapalapa');
 
- // Quinto marcador: Benito Juárez
-  L.marker([19.3781, -99.5667]).addTo(map)
-    .bindPopup('Benito Juárez');
+ // Quinto marcador: Coyoacán
+  L.marker([19.3821, -99.1427]).addTo(map)
+    .bindPopup('Coyoacán');
 
- // Sexto marcador: Venustiano Carranza
-  L.marker([19.3634, -99.2263]).addTo(map)
-    .bindPopup('Venustiano Carranza');
+ // Sexto marcador: Cuajimalpa
+  L.marker([19.3573, -99.2263]).addTo(map)
+    .bindPopup('Cuajimalapa');
 
  // Séptimo marcador: Tlalpan
-  L.marker([18.3641, -97.3537]).addTo(map)
+  L.marker([19.3641, -99.3537]).addTo(map)
     .bindPopup('Tlalpan');
 
   // Define la capa vacía para las alcaldías
   var alcaldiasLayer = L.geoJSON(null, {
     style: {
       color: 'orange',
-      weight: 1.7,
-      fillOpacity: 0.1
+      weight: 2.2,
+      fillOpacity: 0.3
     },
     onEachFeature: function (feature, layer) {
       if (feature.properties && feature.properties.NOMGEO) {
