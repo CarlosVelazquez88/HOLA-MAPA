@@ -31,6 +31,33 @@
         L.marker([19.4023, -99.1617]).addTo(map)
           .bindPopup('Coyoacán')
           .openPopup();
+	var alcaldiasLayer = L.geoJSON(null, {
+	  style: {
+	    color: 'blue',
+	    weight: 2,
+	    fillOpacity: 0.1
+	  },
+          onEachFeature: function (feature, layer) {
+            if (feature.properties && feature.properties,NOMGEO) {
+	      layer.bindPopup('alcaldia: ' + feature.properties.NOMGEO);
+	    }
+	  }
+        });
+
+	// Cargar el archivo GeoJSON (debe estar en la misma carpeta o cambiar la ruta)
+        fetch('alcaldias.geojson')
+          .then(response => response.json())
+          .then(data => {
+            alcaldiasLayer.addData(data);
+        });
+
+  
+        // agregar contol de capas para encender/apagar
+        var overlayMaps = {
+	  "alcaldías CDMX": alcaldiasLayer
+        };
+        L.control.layers(null, overlayMaps),addTo(map);
+	
 </script>
 </body>
 </html>
